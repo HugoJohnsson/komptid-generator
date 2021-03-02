@@ -9,9 +9,10 @@ const initializeData = () => {
         name: null, // First and lastname
         year: null, // 2021, 2022 ...
         month: null, // 1, 2, 3 ...
-        days: {}, // { '1': 4, '2': 0, '3': 0, '4': 2 }
+        days: {}, // { '1': { hours: 4, description: 'worked on new project'} }
         daysInMonth: null,
-        availableDays: null
+        availableDays: null,
+        totalHours: 0
     };
 
 
@@ -25,7 +26,7 @@ const initializeData = () => {
 
     // Initialize the "days" on the data object that holds the number of compensation hours per day
     for (const day of data.availableDays) {
-        data.days[day] = 0;
+        data.days[day] = { hours: 0, description: ''};
     }
 
     console.log('');

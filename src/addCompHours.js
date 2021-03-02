@@ -5,18 +5,20 @@ const addCompHoursHelper = (dataObj) => {
     // so that the user can choose a day to add hours to
     console.log('Tillgängliga dagar: \n');
     for (const day of dataObj.availableDays) {
-        console.log(`${day} = ${dataObj.days[day]}`);
+        console.log(`${day} = ${dataObj.days[day].hours}`);
     }
 
     let choosenDay = readlineSync.question('Välj en dag: ');
-    let numHours = readlineSync.questionInt( 'Antal timmar: ');
-    dataObj.days[choosenDay] = numHours;
+    let numHours = readlineSync.questionInt('Antal timmar: ');
+    let description = readlineSync.question('Beskrivning: ');
+    dataObj.days[choosenDay].hours = numHours;
+    dataObj.days[choosenDay].description = description;
+    
+    dataObj.totalHours += numHours;
 
     if (!readlineSync.keyInYN('Är du klar?')) {
         addCompHoursHelper(dataObj);
     }
-
-    return dataObj;
 }
 
 const addCompHours = (dataObj) => {
@@ -30,7 +32,7 @@ const addCompHours = (dataObj) => {
     
     console.log('Dagar: \n');
     for (const day of dataObj.availableDays) {
-        console.log(`${day} = ${dataObj.days[day]}`);
+        console.log(`${day} = ${dataObj.days[day].hours}`);
     }
     
     console.log('')
