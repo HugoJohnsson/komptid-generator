@@ -62,12 +62,12 @@ const generateDaysTable = (doc, dataObj) => {
         rows.push([`${key}/${dataObj.month}/${dataObj.year}`, dataObj.days[key].hours, dataObj.days[key].description]);
     }
 
-    const table0 = {
+    const table = {
         headers: ['Datum', 'Timmar', 'Beskrivning'],
         rows: rows
     };
     
-    doc.table(table0, {
+    doc.table(table, {
         prepareHeader: () => doc.font('Helvetica').fontSize(9),
         prepareRow: (row, i) => doc.font('Helvetica').fontSize(9)
     });

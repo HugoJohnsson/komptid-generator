@@ -1,4 +1,5 @@
 const readlineSync = require('readline-sync');
+const chalk = require('chalk');
 
 const addCompHoursHelper = (dataObj) => {
     // Display list of days in the choosen month
@@ -32,7 +33,7 @@ const addCompHours = (dataObj) => {
     
     console.log('Dagar: \n');
     for (const day of dataObj.availableDays) {
-        console.log(`${day} = ${dataObj.days[day].hours}`);
+        console.log(`${day} = ${chalk.blue(dataObj.days[day].hours)}`);
     }
     
     console.log('')
